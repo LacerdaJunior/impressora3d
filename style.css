@@ -1,0 +1,398 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+.header {
+  background: rgb(20, 75, 255);
+  padding-inline: 16px;
+}
+
+.nav {
+  max-width: 1280px;
+  height: 70px;
+  margin-inline: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 48px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-list a {
+	font-size: 18px;
+	color: #fff;
+	padding-block: 16px;
+	position: relative;
+	transition: font-size 0.5s ease; 
+  }
+  
+  .nav-list a:hover {
+	font-size: 22px; 
+  }
+
+.hero {
+  height: calc(100vh - 70px);
+  background: center / cover no-repeat url("icone/bg.jpg");
+}
+
+.hamburger {
+  display: none;
+  border: none;
+  background: none;
+  border-top: 3px solid #fff;
+  cursor: pointer;
+}
+
+.hamburger::after,
+.hamburger::before {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  margin-top: 5px;
+  position: relative;
+  transition: 0.3s;
+}
+
+@media (max-width: 750px) {
+  .hamburger {
+    display: block;
+    z-index: 1;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(20, 75, 255);
+    clip-path: circle(100px at 90% -15%);
+    transition: 1s ease-out;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .nav-list a {
+    font-size: 24px;
+    opacity: 0;
+  }
+
+  .nav-list li:nth-child(1) a {
+    transition: 0.5s 0.2s;
+  }
+
+  .nav-list li:nth-child(2) a {
+    transition: 0.5s 0.4s;
+  }
+
+  .nav-list li:nth-child(3) a {
+    transition: 0.5s 0.6s;
+  }
+
+  /* Estilos ativos */
+
+  .nav.active .nav-list {
+    clip-path: circle(1500px at 90% -15%);
+    pointer-events: all;
+  }
+
+  .nav.active .nav-list a {
+    opacity: 1;
+  }
+
+  .nav.active .hamburger {
+    position: fixed;
+    top: 26px;
+    right: 16px;
+    border-top-color: transparent;
+    z-index: 1000;
+  }
+
+  .nav.active .hamburger::before {
+    transform: rotate(135deg);
+  }
+
+  .nav.active .hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+}
+
+@media screen and (max-width:750px){
+  .hero {
+    height: calc(100vh - 70px);
+    background: center / cover no-repeat url("icone/BG2.jpg");
+  }
+}
+footer{
+  position: fixed;
+  bottom: 0%;
+  height: 9vh;
+  width: 100%;
+  background-color: rgb(0, 0, 0, 90%);
+  opacity: 75%;
+}
+
+footer p{
+  color: white;
+  font-family: 'Calibri';
+  font-size: 15px;
+  text-align: center;
+  position: relative;
+  top: 33%;
+}
+.hero2 {
+  position: relative;
+  height: calc(100vh - 70px);
+  background: center / cover no-repeat url("icone/bg3.jpg");
+}
+
+@media screen and (max-width:750px){
+  .hero2 {
+    height: calc(100vh - 70px);
+    background: center / cover no-repeat url("icone/bg4.jpg");
+  }
+}
+#contact-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centralize vertical e horizontalmente */
+  background-color: rgba(20, 70, 255, 0.8);
+  color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 90%; /* Reduza a largura máxima para evitar que o formulário fique muito largo */
+  width: 400px; /* Defina uma largura fixa para evitar que o formulário fique muito estreito */
+  margin: 0 auto;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+
+#contact-form h2 {
+	text-align: center;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+	width: 100%; 
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.1);
+	color: #fff;
+	font-size: 16px;
+	resize: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+	outline: none;
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+button[type="submit"] {
+	background-color: #436fff;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	margin-top: 10px; 
+}
+
+button[type="submit"]:hover {
+	background-color: #0046f5; 
+}
+
+.entrecontato {
+	font-size: medium;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+@media screen and (max-width: 768px) {
+  #contact-form {
+    padding: 10px; 
+    max-width: 100%; 
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-size: 14px; 
+  }
+
+  button[type="submit"] {
+    font-size: 14px; 
+  }
+}
+/* Estilo para a caixa de texto */
+.text-box {
+  background-color: rgb(20, 70, 255);
+  color: #fff;
+  padding: 2% 4%;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  position: relative;
+  text-align: left;
+  box-sizing: border-box; /* Certifica-se de que o preenchimento não afete a largura total */
+  font-family: sans-serif;
+  margin-top: 30px;
+}
+
+/* Estilo para o título dentro da caixa de texto */
+.text-box h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* Estilo para o texto dentro da caixa de texto */
+.text-box p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* Media query para telas menores (exemplo: smartphones) */
+@media screen and (max-width: 768px) {
+  .text-box {
+    padding: 10% 5%;
+  }
+
+  .text-box h2 {
+    font-size: 20px;
+  }
+
+  .text-box p {
+    font-size: 14px;
+  }
+}
+.chocolates{
+  position: relative;
+  background-color: rgb(51, 47, 47); /* Adicione a cor de fundo desejada aqui */
+  color: #fff;
+  text-align: center;
+  padding: 50px 0;
+}
+
+body {
+  background-color: rgb(51, 47, 47); /* Altere para a cor preta ou a cor desejada */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Adicione estilos para os containers vazios */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px); /* Ajuste conforme necessário */
+  background: center / cover no-repeat;
+  margin: 50px; /* Espaçamento entre os containers */
+}
+
+.empty-container {
+  margin-top: 0px;
+  width: 100%;
+  max-width: 600px; /* Largura máxima do container */
+  padding: 20px;
+  background-color: rgba(20,70,255, 0.8); /* Cor de fundo do container */
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+/* Estilos para tornar os containers responsivos em telas menores */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .empty-container {
+    width: 100%;
+    max-width: 100%; /* Largura máxima do container em telas menores */
+  }
+}
+
+.container-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os containers quebrem para a próxima linha quando não couberem na largura */
+  justify-content: center; /* Centraliza horizontalmente os containers */
+}
+
+a[href="#top"] {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+@media (max-width: 768px) {
+  .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  a[href="#top"] {
+      font-size: 0; /* Torna o texto dentro da âncora invisível */
+      background-color: transparent; /* Remove o plano de fundo */
+      padding: 0; /* Remove o preenchimento */
+
+      /* Define a imagem como fundo da âncora */
+      background-image: url('icone/seta.png'); /* Substitua 'icone/seta.png' pelo caminho real da sua imagem */
+      background-size: 40px 40px; /* Ajuste o tamanho da imagem conforme necessário */
+      background-repeat: no-repeat;
+      background-position: right;
+      width: 40px; /* Defina o tamanho da âncora para o tamanho da imagem */
+      height: 40px;
+      border-radius: 50%; /* Adiciona borda arredondada à imagem */
+  }
+}
